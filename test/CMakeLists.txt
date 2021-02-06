@@ -1,11 +1,12 @@
-cmake_minimum_required(VERSION 3.17)
+cmake_minimum_required(VERSION 3.10)
 project(test_mmapfile)
-set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD 17)
+
+include(cmake_gtest.cmake)
 
 function(SetIncludeDirectories)
     include_directories(${CMAKE_CURRENT_SOURCE_DIR})
     include_directories(${CMAKE_SOURCE_DIR}/source)
-    include_directories($ENV{GTEST_HOME}/include)
 endfunction()
 
 function(SetLinkDirectories)
@@ -21,8 +22,8 @@ function(SetSourceFiles)
 endfunction()
 
 function(LinkLibraries)
-    target_link_libraries(${PROJECT_NAME} gtest)
-    target_link_libraries(${PROJECT_NAME} gmock)
+    target_link_libraries(${PROJECT_NAME} gtest_main)
+    target_link_libraries(${PROJECT_NAME} gmock_main)
     target_link_libraries(${PROJECT_NAME} pthread)
     target_link_libraries(${PROJECT_NAME} mmapfile)
 endfunction()
@@ -33,4 +34,3 @@ SetLinkDirectories()
 add_executable(${PROJECT_NAME} ${SOURCES})
 
 LinkLibraries()
-
