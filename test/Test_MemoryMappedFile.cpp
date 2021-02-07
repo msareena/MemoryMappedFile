@@ -146,3 +146,10 @@ TEST_F(AMemoryMappedFile, CanReadDataFromMappedFileAtSpecifiedOffset)
 
     ASSERT_EQ(actual, expected);
 }
+
+TEST_F(AMemoryMappedFile, CanOpenAMapDuringConstruction)
+{
+    ASSERT_FALSE(mMMapFile.IsOpen());
+    mMMapFile = MemoryMappedFile(TEST_FILEPATH);
+    ASSERT_TRUE(mMMapFile.IsOpen());
+}

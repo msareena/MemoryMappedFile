@@ -15,6 +15,7 @@ class MemoryMappedFile
 {
 public:
     MemoryMappedFile() noexcept { }
+    MemoryMappedFile(FilePathType const& filepath);
     MemoryMappedFile(MemoryMappedFile const&) = delete;
     MemoryMappedFile& operator=(MemoryMappedFile const&) = delete;
 

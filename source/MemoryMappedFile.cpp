@@ -5,6 +5,11 @@
 #include <sys/mman.h>
 #include <sys/types.h>
 
+MemoryMappedFile::MemoryMappedFile(FilePathType const& filepath)
+{
+    Open(filepath);
+}
+
 MemoryMappedFile::~MemoryMappedFile()
 {
     try {
