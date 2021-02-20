@@ -3,9 +3,9 @@ project(MemoryMappedFile)
 
 set(CMAKE_CXX_STANDARD 17)
 
-option(BUILD_TESTS "Build tests" ON)
+option(MMAPFILE_BUILD_TESTS "Build tests" ON)
 
 add_subdirectory(source)
-if (BUILD_TESTS)
+if (MMAPFILE_BUILD_TESTS)
     add_subdirectory(test)
 endif()
